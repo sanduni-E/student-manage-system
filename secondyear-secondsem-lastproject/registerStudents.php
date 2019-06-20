@@ -57,16 +57,51 @@
 
         <button type="submit" class="btn btn-success" name="submit">Sign in</button>
 
-        <?php
+        
 
+
+
+
+        <?php
 
         if (isset($_POST['submit']))
         {
-            if ((empty($_POST['fname'])) || (empty($_POST['lname'])) || (empty($_POST['indexno'])) || (empty($_POST['faculty']))|| (empty($_POST['department']))){
-
+            if ((empty($_POST['fname'])) || (empty($_POST['lname'])) || (empty($_POST['indexno'])) || (empty($_POST['faculty']))|| (empty($_POST['department'])))
+            {
                 echo '<h1>All fields are required</h1>';
             }
+
+            else{
+
+            $conn = mysqli_connect('localhost','root','','studentinformation');
+
+            if (mysqli_connect_errno()){
+                //connection failed
+                echo '<h1>failed to connect</h1> '.mysqli_connect_errno();
+            }
+            else{
+                 
+            }
+
+
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $indexno = $_POST['indexno'];
+            $faculty = $_POST['faculty'];
+            $department = $_POST['department'];
+
+           
+        $query = "INSERT INTO students (firstname,lastname,indexno,faculty,department) VALUES ('$fname',
+                '$lname','$indexno','$faculty','$department')";
+
+            if(mysqli_query($conn, $query)){
+                 echo "<br> <h3>Records inserted successfully<h3>";
+            } else{
+                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            }
         }
+
+        }       
 
         ?>
     </form>
@@ -76,31 +111,4 @@
 </body>
 </html>
 
-<?php
-
-
-if (isset($_POST['submit']))
-{
-
-        $conn = mysqli_connect('localhost','root','','studentinformation');
-
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $indexno = $_POST['indexno'];
-        $faculty = $_POST['faculty'];
-        $department = $_POST['department'];
-
-        echo $fname;
-        echo $lname;
-        echo $indexno;
-        echo $faculty;
-        echo $department;
-
-
-        $query = "INSERT INTO students(firstname,lastname,indexno,faculty,department) VALUES ('$fname','$lname','$indexno','$faculty','$department')";
-
-
-}
-
-
-?>
+ 

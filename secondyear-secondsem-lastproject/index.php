@@ -47,14 +47,4 @@
 </body>
 </html>
 
-<?php
-//create connnection
-$conn = mysqli_connect('localhost','root','','studentinformation');
-//check connection
-if (mysqli_connect_errno()){
-    //connection failed
-    echo 'failed to connect '.mysqli_connect_errno();
-}
-else{
-    echo 'connection sucess';
-}
+ 
