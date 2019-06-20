@@ -12,7 +12,7 @@
 
     <div class="row top-row">
         <div class="col-md-6">
-            <a href="">
+            <a href="registerStudents.php">
                 <button type="button" class="btn btn-warning">Register Students</button>
             </a>
         </div>
@@ -46,3 +46,15 @@
 
 </body>
 </html>
+
+<?php
+//create connnection
+$conn = mysqli_connect('localhost','root','','studentinformation');
+//check connection
+if (mysqli_connect_errno()){
+    //connection failed
+    echo 'failed to connect '.mysqli_connect_errno();
+}
+else{
+    echo 'connection sucess';
+}

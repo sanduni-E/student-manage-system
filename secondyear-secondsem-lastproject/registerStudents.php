@@ -10,37 +10,34 @@
 
 <div class="container">
 
-    <form class="regform">
+    <form class="regform" action = "registerStudents.php" method="post" >
 
         <div class="form-row">
 
             <div class="form-group col-md-4">
-                <label for="inputEmail4">First Name</label>
-                <input type="text" class="form-control"  placeholder="FirstName">
+                <label for="inputEmail4" class="txtlabel">First Name</label>
+                <input type="text" class="form-control"  placeholder="FirstName" name="fname">
             </div>
 
             <div class="form-group col-md-4">
-                <label for="inputPassword4">Last Name</label>
-                <input type="text" class="form-control"  placeholder="LastName">
+                <label for="inputPassword4" class="txtlabel">Last Name</label>
+                <input type="text" class="form-control"  placeholder="LastName" name="lname">
             </div>
 
+        </div>
 
+        <div class="form-group">
+
+            <label for="inputAddress" class="txtlabel">Index No</label>
+            <input type="text" class="form-control" placeholder="Index No" name="indexno">
 
         </div>
 
         <div class="form-group">
 
-            <label for="inputAddress">Index No</label>
-            <input type="text" class="form-control" placeholder="Index No">
+            <label for="inputAddress" class="txtlabel">Faculty</label>
+            <select class="form-control" name="faculty">
 
-        </div>
-
-        <div class="form-group">
-
-            <label for="inputAddress">Faculty</label>
-
-            <select id="inputState" class="form-control">
-                
                 <option selected>Agricultural Sciences</option>
                 <option>Management Studies</option>
                 <option>Geomatics</option>
@@ -53,17 +50,57 @@
 
         <div class="form-group">
 
-            <label for="inputAddress">Department</label>
-            <input type="text" class="form-control" placeholder="Faculty">
+            <label for="inputAddress" class="txtlabel">Department</label>
+            <input type="text" class="form-control" placeholder="Department" name="department">
 
         </div>
 
-        <button type="submit" class="btn btn-danger">Sign in</button>
+        <button type="submit" class="btn btn-success" name="submit">Sign in</button>
+
+        <?php
+
+
+        if (isset($_POST['submit']))
+        {
+            if ((empty($_POST['fname'])) || (empty($_POST['lname'])) || (empty($_POST['indexno'])) || (empty($_POST['faculty']))|| (empty($_POST['department']))){
+
+                echo '<h1>All fields are required</h1>';
+            }
+        }
+
+        ?>
     </form>
 
 </div>
 
-
-
 </body>
 </html>
+
+<?php
+
+
+if (isset($_POST['submit']))
+{
+
+        $conn = mysqli_connect('localhost','root','','studentinformation');
+
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $indexno = $_POST['indexno'];
+        $faculty = $_POST['faculty'];
+        $department = $_POST['department'];
+
+        echo $fname;
+        echo $lname;
+        echo $indexno;
+        echo $faculty;
+        echo $department;
+
+
+        $query = "INSERT INTO students(firstname,lastname,indexno,faculty,department) VALUES ('$fname','$lname','$indexno','$faculty','$department')";
+
+
+}
+
+
+?>

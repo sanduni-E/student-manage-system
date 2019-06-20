@@ -4,10 +4,16 @@
 
 .form-control{
     width: 300px;
+    font-size: 16px;
 }
 
 .btn{
     width: 200px;
     color: black;
-    font-size: 14px;
+    font-size: 16px;
+
+}
+
+.txtlabel{
+    font-size: 16px;
 }
