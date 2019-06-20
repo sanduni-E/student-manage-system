@@ -1,0 +1,13 @@
+.regform{
+    margin-top: 50px;
+}
+
+.form-control{
+    width: 300px;
+}
+
+.btn{
+    width: 200px;
+    color: black;
+    font-size: 14px;
+}
