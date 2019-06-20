@@ -58,10 +58,6 @@
         <button type="submit" class="btn btn-success" name="submit">Sign in</button>
 
         
-
-
-
-
         <?php
 
         if (isset($_POST['submit']))

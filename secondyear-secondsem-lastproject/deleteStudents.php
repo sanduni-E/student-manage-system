@@ -11,7 +11,7 @@
 
 <div class="container" >
 
-<form class="myform">
+<form class="myform" action="deleteStudents.php" method="post">
 
 	  <div class="form-group">
 
@@ -20,46 +20,54 @@
 	    
 	  </div>
 
-	  <button type="submit" class="btn btn-warning">Search</button>
+	  <button type="submit" class="btn btn-warning" name="submit">Search</button>
 
-	  <div class="form-group">
+	  <?php
 
-	  	<div class="row">
+        if (isset($_POST['submit']))
+        {
+            $conn = mysqli_connect('localhost','root','','studentinformation');
 
-	  		<div class="col-md-4">
+            if (mysqli_connect_errno()){
+                //connection failed
+                echo '<h1>failed to connect</h1> '.mysqli_connect_errno();
+            }
+            else{
+             	 
+            }
+            if (mysqli_connect_errno()){
+                //connection failed
+                echo '<h1>failed to connect</h1> '.mysqli_connect_errno();
+            }
+            else{
+                  
+            }
 
-	  			<label class="mylabel2top">Student Name</label>
-	    		<input type="text" class="form-control" name="studentname">
-	  			
-	  		</div>  	
-	  		
-	  	</div>
+            $result = $_POST['studentid'];
 
-	  	<div class="row">
+       		$query = "SELECT * FROM students WHERE indexno = '$result' ";
 
-	  		<div class="col-md-4">
+       	    $endresult = mysqli_query($conn,$query);
 
-	  			<label class="mylabel2">Faculty</label>
-	    		<input type="text" class="form-control" name="faculty">
-	  			
-	  		</div>  	  		
-	  		
-	  	</div>
+       	    $data = mysqli_fetch_all($endresult,MYSQLI_ASSOC);
+       	    
+       	    foreach ($data as $post) {
+       	     	echo $post['firstname'];
+       	    }  
 
-	  	<div class="row">
 
-	  		<div class="col-md-4">
 
-	  			<label class="mylabel2">Department</label>
-	    		<input type="text" class="form-control" name="department">
-	  			
-	  		</div>	
-	  		
-	  	</div>    
-	    
-	  </div>
+       	    mysqli_free_result($endresult);
 
-	  <button type="submit" class="btn btn-warning">Delete</button>
+             
+        }
+
+               
+
+        ?>
+
+	  	 
+	  	 
 
 </form>
 
