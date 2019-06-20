@@ -5,6 +5,7 @@
     <title>Main Page</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="main-page-style.css">
+    <link rel="stylesheet" href="fontstyleall.css">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <a href="">
+            <a href="searchStudents.php">
                 <button type="button" class="btn btn-warning">Search Students</button>
             </a>
         </div>

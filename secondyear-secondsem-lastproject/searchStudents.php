@@ -5,7 +5,8 @@
     <title>Main Page</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="deleteStudentsstyle.css">
-     
+    <link rel="stylesheet" href="fontstyleall.css">
+        
 </head>
 <body>
 
@@ -59,9 +60,9 @@
       	    }  
 
             echo "<br><br>" ;
-            echo "<h1>Full Name  : $name</h1>";
-            echo "<h1>Faculty  : $faculty</h1>";
-            echo "<h1>Department  : $department</h1>";
+            echo "<h2>Full Name  : $name</h2>";
+            echo "<h2>Faculty  : $faculty</h2>";
+            echo "<h2>Department  : $department</h2>";
 
 
        	    mysqli_free_result($endresult);
@@ -71,17 +72,9 @@
 
                
 
-        ?>
-
-	  	 
-	  	 
+    ?> 	 
 
 </form>
-
- 
-
-    
-</div>
 
 </body>
 </html>

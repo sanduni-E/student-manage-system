@@ -5,6 +5,7 @@
     <title>Main Page</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="deleteStudentsstyle.css">
+    <link rel="stylesheet" href="fontstyleall.css">
      
 </head>
 <body>
