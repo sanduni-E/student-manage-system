@@ -1,3 +1,26 @@
-.uprow{
-    margin-top: 30px;
+.thelabel{
+    font-size: 16px;
+    padding-left: 50px;
 }
+
+.myform{
+    margin-top: 40px;
+}
+
+.btn{
+	height: 40px;
+	width: 100px;
+	color: black;
+	font-size: 16px;
+}
+
+.form-control{
+	font-size: 16px;
+	width: 200px;
+}
+
+.editingrowset{
+    padding-top: 30px;
+}
+
+ 

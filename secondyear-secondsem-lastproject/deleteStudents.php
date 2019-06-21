@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
+    <title>Delete Students</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="deleteStudentsstyle.css">
     <link rel="stylesheet" href="fontstyleall.css">
@@ -19,7 +19,7 @@
         <label class="mylabel">Enter Student ID</label>
         
         <div class="row">
-
+            
             <div class="col-md-3">
                 <input type="text" class="form-control" placeholder="Student ID" name="studentid" value="<?php if (isset($_POST['studentid'])) echo $_POST['studentid']; ?>">
             </div>
