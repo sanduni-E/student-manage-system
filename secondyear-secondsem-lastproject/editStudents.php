@@ -65,12 +65,12 @@ if(isset($_POST['searchsubmit'])){
 
     <div class="form-group col-md-3">
       <label class="thelabel">First Name</label>
-      <input type="text" class="form-control" value="<?php if(isset($_POST['searchsubmit'])) echo "$firstname"; ?>" >
+      <input type="text" class="form-control" name = "firstname" value="<?php if(isset($_POST['searchsubmit'])) echo "$firstname"; ?>" >
     </div>
 
     <div class="form-group col-md-3">
       <label class="thelabel">Last Name</label>
-      <input type="text" class="form-control" value="<?php if(isset($_POST['searchsubmit'])) echo "$lastname"; ?>" >
+      <input type="text" class="form-control" name="lastname" value="<?php if(isset($_POST['searchsubmit'])) echo "$lastname"; ?>" >
     </div>
 
   </div>
@@ -92,16 +92,36 @@ if(isset($_POST['searchsubmit'])){
 
   <div class="form-group">
     <label class="thelabel">Department</label>
-    <input type="text" class="form-control" value = "<?php if(isset($_POST['searchsubmit'])) echo "$department"; ?>">
+    <input type="text" class="form-control" name = "department" value = "<?php if(isset($_POST['searchsubmit'])) echo "$department"; ?>">
   </div>   
      
-  <button type="submit" class="btn btn-primary">Edit</button>
- 
+  <button type="submit" name="editbtn" class="btn btn-primary">Edit</button>
 
+  <?php
+
+    if(isset($_POST['editbtn'])){
+
+        $conn = mysqli_connect('localhost','root','','studentinformation');
+
+        $result = $_POST['studentid'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $faculty = $_POST['faculty'];
+        $department = $_POST['department'];
+
+        $sql = "UPDATE students SET firstname='$firstname',lastname = '$lastname',faculty = '$faculty',
+        department = '$department' WHERE indexno = '$result' ";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<h1>Record updated successfully</h1>";
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+        }
+
+    }
+?>
 </form>
-</div>
-
-  
+</div> 
  
 </body>
 </html>
