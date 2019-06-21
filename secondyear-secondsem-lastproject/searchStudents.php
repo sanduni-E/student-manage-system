@@ -46,7 +46,7 @@
 
             $result = $_POST['studentid'];
 
-       		  $query = "SELECT * FROM students WHERE indexno = '$result' ";
+       		$query = "SELECT * FROM students WHERE indexno = '$result' ";
 
        	    $endresult = mysqli_query($conn,$query);
 
